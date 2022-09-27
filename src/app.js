@@ -157,6 +157,12 @@ const UserInfo = {
   }
 }
 
+// a function for choose random user key from UserInfo
+function generateRandomUserKey() {
+  const keys = Object.keys(UserInfo)
+  return keys[keys.length * Math.random() << 0]
+}
+
 // choose random number of words from corpus with no conflicts
 function chooseRandomWords(n = 10) {
   let words = [];
@@ -199,21 +205,13 @@ function generateCard(name, nickname, userName) {
     "response_type": "in_channel",
     "attachments": [
       {
-        "fallback": "Plain-text summary of the attachment.",
         "color": UserInfo[name]?.color ?? DEFAULT_COLOR,
-        "author_name": userName,
+        "author_name": '닉네임 생성기 🤖',
         "author_link": UserInfo[name]?.image ?? DEFAULT_IMAGE,
         "author_icon": UserInfo[name]?.image ?? DEFAULT_IMAGE,
         "title": `${name} 님의 닉네임은?`,
         "title_link": UserInfo[name]?.link ?? DEFAULT_IMAGE,
         "text": nickname,
-        "fields": [
-          // {
-          //   "title": "Priority",
-          //   "value": "High",
-          //   "short": false
-          // }
-        ],
         "image_url": UserInfo[name]?.image ?? DEFAULT_IMAGE,
         "thumb_url": UserInfo[name]?.image ?? DEFAULT_IMAGE,
         "footer": `${name} 님의 사진`,
@@ -237,7 +235,7 @@ app.get('/api/', (req, res) => {
 
 app.post('/api/', (req, res) => {
   const { body } = req;
-  const name = body.text && body.text.length > 0 ? body.text : '김세진'
+  const name = body.text && body.text.length > 0 ? body.text : generateRandomUserKey();
   const userName = body.user_name
   const nickname = generateNickname(name)
 
