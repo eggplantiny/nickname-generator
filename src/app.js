@@ -14,12 +14,18 @@ function generateNickname(name = '김세진') {
 
 app.get('/api/', (req, res) => {
   const nickname = generateNickname()
-  res.send(nickname);
+  res.json({
+    "response_type": "in_channel",
+    "text": nickname
+  });
 });
 
 app.post('/api/', (req, res) => {
   const nickname = generateNickname()
-  res.send(nickname);
+  res.json({
+    "response_type": "in_channel",
+    "text": nickname
+  });
 });
 
 app.listen(10054);
