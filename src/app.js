@@ -207,8 +207,8 @@ function generateCard(name, nickname, userName) {
       {
         "color": UserInfo[name]?.color ?? DEFAULT_COLOR,
         "author_name": '닉네임 생성기 🤖',
-        "author_link": UserInfo[name]?.image ?? DEFAULT_IMAGE,
-        "author_icon": UserInfo[name]?.image ?? DEFAULT_IMAGE,
+        "author_link": 'https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f916@2x.png',
+        "author_icon": 'https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f916@2x.png',
         "title": `${name} 님의 닉네임은?`,
         "title_link": UserInfo[name]?.link ?? DEFAULT_IMAGE,
         "text": nickname,
