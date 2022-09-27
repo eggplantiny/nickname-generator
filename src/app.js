@@ -73,12 +73,6 @@ const CORPUS = [
     emoji: '🤓',
   },
   {
-    text: '귀여운',
-    suffix: '귀여운',
-    emotion: 'happiness',
-    emoji: '😍',
-  },
-  {
     text: '섹시하고',
     suffix: '섹시한',
     emotion: 'cool',
@@ -172,7 +166,8 @@ app.get('/api/', (req, res) => {
 
 app.post('/api/', (req, res) => {
   const { body } = req;
-  const nickname = generateNickname(body.text ?? '김세진')
+  const name = `${body.text}`.trim();
+  const nickname = generateNickname(name ?? '김세진')
 
   res.setHeader('content-type', 'application/json');
 
