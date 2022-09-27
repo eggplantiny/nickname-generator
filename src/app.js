@@ -166,8 +166,8 @@ app.get('/api/', (req, res) => {
 
 app.post('/api/', (req, res) => {
   const { body } = req;
-  const name = `${body.text}`.trim();
-  const nickname = generateNickname(name ?? '김세진')
+  const name = body.text && body.text.length > 0 ? body.text : '김세진'
+  const nickname = generateNickname(name)
 
   res.setHeader('content-type', 'application/json');
 
