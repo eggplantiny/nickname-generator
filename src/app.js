@@ -122,8 +122,38 @@ const CORPUS = [
 const UserInfo = {
   '김세진': {
     image: 'https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512',
-    link: 'https://www.naver.com',
+    link: 'https://github.com/setosejin',
     color: '#2eb886',
+  },
+  '김성화': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03AVD5J0NT-6905960ccb37-512',
+    link: 'https://github.com/sh827kim/',
+    color: '#581010',
+  },
+  '정성우': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03B9A1694N-8f3202ea6b13-512',
+    link: 'https://github.com/eggplantiny/',
+    color: '#5D32BE',
+  },
+  '최승훈': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03B96LULLW-1c77fd804ed1-512',
+    color: '#bfc819',
+  },
+  '이승연': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03BJ07QYDS-075296008923-512',
+    color: '#2cc023',
+  },
+  '오현지': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03BCNUG6Q5-e90c933b629c-512',
+    color: '#c354bd',
+  },
+  '오상현': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03MPF13BBJ-9d567058deb5-512',
+    color: '#279b8b',
+  },
+  '사봉준': {
+    image: 'https://ca.slack-edge.com/T03B3BN98DC-U03MPFWCMNU-gd84feb8e0e1-512',
+    color: '#070745',
   }
 }
 
@@ -164,10 +194,6 @@ function generateNickname(name = '김세진') {
   return words.join(' ')
 }
 
-function hasCard(name) {
-  return name in UserInfo;
-}
-
 function generateCard(name, nickname, userName) {
   return {
     "response_type": "in_channel",
@@ -175,7 +201,6 @@ function generateCard(name, nickname, userName) {
       {
         "fallback": "Plain-text summary of the attachment.",
         "color": UserInfo[name]?.color ?? DEFAULT_COLOR,
-        "pretext": `${name} 님의 닉네임은?`,
         "author_name": userName,
         "author_link": UserInfo[name]?.image ?? DEFAULT_IMAGE,
         "author_icon": UserInfo[name]?.image ?? DEFAULT_IMAGE,
