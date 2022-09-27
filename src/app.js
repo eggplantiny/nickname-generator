@@ -20,6 +20,6 @@ app.get('/api/', (req, res) => {
 app.post('/api/', (req, res) => {
   const nickname = generateNickname()
   res.send(nickname);
-}
+});
 
 app.listen(10054);
