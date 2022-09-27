@@ -1,6 +1,9 @@
 const express = require('express');
 
-let app = express();
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended:true }));
 
 const CORPUS = [
   {
@@ -167,10 +170,14 @@ app.get('/api/', (req, res) => {
 });
 
 app.post('/api/', (req, res) => {
-  const nickname = generateNickname()
+  const { body } = req;
+  const nickname = generateNickname(body.text ?? '김세진')
   res.json({
     "response_type": "in_channel",
-    "text": nickname,
+    "text": {
+      "type": "mrkdwn",
+      "text": `[${nickname}](https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512)`
+    },
     "url_private": 'https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512'
   });
 });
