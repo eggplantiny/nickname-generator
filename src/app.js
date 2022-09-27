@@ -184,11 +184,12 @@ app.post('/api/', (req, res) => {
           "type": "section",
           "text": {
             "type": "mrkdwn",
-            "text": `[${nickname}](https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512)`
+            "text": `${nickname}`
           },
         }
       ]
-    }
+    },
+    "url_private": 'https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512'
   });
 });
 
