@@ -11,4 +11,4 @@ app.get('/api/', (req, res) => {
   res.send(`${l1} ${l2} 김세진`);
 });
 
-app.listen(80);
+app.listen(10054);
