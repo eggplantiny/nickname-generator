@@ -178,17 +178,15 @@ app.post('/api/', (req, res) => {
 
   res.json({
     "response_type": "in_channel",
-    "text": {
-      "blocks": [
-        {
-          "type": "section",
-          "text": {
-            "type": "mrkdwn",
-            "text": `${nickname}`
-          },
-        }
-      ]
-    },
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": `*${nickname}*`
+        },
+      }
+    ],
     "url_private": 'https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512'
   });
 });
