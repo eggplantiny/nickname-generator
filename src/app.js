@@ -169,16 +169,26 @@ app.get('/api/', (req, res) => {
   });
 });
 
+
 app.post('/api/', (req, res) => {
   const { body } = req;
   const nickname = generateNickname(body.text ?? '김세진')
+
+  res.setHeader('content-type', 'application/json');
+
   res.json({
     "response_type": "in_channel",
     "text": {
-      "type": "mrkdwn",
-      "text": `[${nickname}](https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512)`
-    },
-    "url_private": 'https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512'
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": `[${nickname}](https://ca.slack-edge.com/T03B3BN98DC-U03CAPJ175F-a1ecf5beed3e-512)`
+          },
+        }
+      ]
+    }
   });
 });
 
